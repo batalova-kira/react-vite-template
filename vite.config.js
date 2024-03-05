@@ -1,8 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    base: "/react-vite-template/", // Замініть на ім'я вашого репо
     plugins: [react()],
+    server: {
+        port: 3000,
+        open: true,
+    },
+    build: {
+        outDir: "./dist",
+        assetsDir: "assets",
+    },
+    css: {
+        modules: false,
+    },
+    base: "/react-vite-template",
 });
