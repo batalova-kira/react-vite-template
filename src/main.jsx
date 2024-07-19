@@ -1,23 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./main.css";
-import App from "./сomponents/App";
-
-import { GlobalStyle } from "./сomponents/GlobalStyle";
+import "./components/index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { persistor, store } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import App from "./components/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <BrowserRouter basename="/react-vite-template">
-            <Provider store={store}>
-                <PersistGate persistor={persistor}></PersistGate>
-                <App />
-                <GlobalStyle />
-            </Provider>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+            {/* <Provider store={store}> */}
+            {/* <PersistGate persistor={persistor}> */}
+            <App />
+            {/* </PersistGate> */}
+            {/* </Provider> */}
         </BrowserRouter>
     </React.StrictMode>
 );
